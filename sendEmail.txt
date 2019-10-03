@@ -1,0 +1,45 @@
+DELAY 1000
+REM ------------- Send email from gmail
+REM ------------- @ is used for quotations, and " is used for the @ symbol
+GUI r
+DELAY 500
+STRING powershell
+ENTER
+DELAY 500
+STRING $From = @fromEmail"gmail.com@
+DELAY 500
+SHIFT ENTER
+STRING $To = @toEmail"gmail.com@
+DELAY 500
+SHIFT ENTER
+STRING $Subject = @Test Email RubberDucky@
+DELAY 500
+SHIFT ENTER
+STRING $Body = @This is a test@
+DELAY 500
+SHIFT ENTER
+STRING $SMTPServer = @smtp.gmail.com@
+DELAY 500
+SHIFT ENTER
+STRING $SMTPPort = @587@
+DELAY 500
+SHIFT ENTER
+STRING Send-MailMessage -From $From -to $To -Subject $Subject -Body $Body -SmtpServer $SMTPServer -port $SMTPPort -UseSsl -Credential (Get-Credential)
+REM –DeliveryNotificationOption OnSuccess - This used to be at the end, but didn't work so I took it out 
+DELAY 500
+ENTER
+DELAY 1000
+REM ------------- This is credentials used to log into gmail
+STRING userName"gmail.com
+DELAY 500
+TAB
+DELAY 500
+STRING passWord 
+DELAY 500
+ENTER
+DELAY 2000
+STRING exit
+ENTER
+
+REM - These are additional parts of the message/email that I took out while testing.
+REM - Attachments $Attachment -Cc $Cc
